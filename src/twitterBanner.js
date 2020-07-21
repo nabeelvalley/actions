@@ -30,6 +30,8 @@ const main = async () => {
   const twitterResponse = await client.post('account/update_profile_banner', {
     banner: imageBase64
   })
+
+  console.log("an empty object indicates success", twitterResponse)
 }
 
 main()
