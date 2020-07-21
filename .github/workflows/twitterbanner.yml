@@ -6,7 +6,12 @@ name: Twitter Banner
 on:
   schedule:
     - cron: "0 */6 * * *"
-
+  workflow_dispatch: 
+    inputs:
+      logLevel:
+        description: 'Explanation'     
+        required: true
+  
 jobs:
   build:
     runs-on: ubuntu-latest
