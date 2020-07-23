@@ -1,12 +1,12 @@
-const fetch = require('node-fetch')
-const sharp = require('sharp')
+import fetch from 'node-fetch'
+import sharp from 'sharp'
 
 /**
  * Get image from a URL as a Base64 String
- * @param {string} url 
- * @returns {Promise<string>} base64ImageString
+ * @param url 
+ * @returns base64ImageString
  */
-module.exports = async (url) => {
+export default async (url: string) => {
     const imageResponse = await fetch(url)
     const imageBlob = await imageResponse.buffer()
   

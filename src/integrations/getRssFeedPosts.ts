@@ -1,30 +1,29 @@
-const xml2js = require('xml2js')
-const fetch = require('node-fetch')
+import xml2js from 'xml2js'
+import fetch from 'node-fetch'
+import BlogRSS from '../types/BlogRSS'
 
 /**
  * Fetch RSS Feed Posts from the provided URL
- * @param {string} rssUrl
- * @returns {Promise<{
- *  lastBuildDate: string;
- *  posts: {title: string, link:string, pubDate:string};
- *}>}
+ * @param rssUrl
  */
-module.exports = async (rssUrl) => {
+module.exports = async (rssUrl: string) => {
   const response = await fetch(rssUrl)
   const text = await response.text()
-  const feed = await xml2js.parseStringPromise(text)
+  const feed: BlogRSS = await xml2js.parseStringPromise(text)
 
   const channel = feed.rss.channel[0]
 
   const lastBuildDate = new Date(channel.lastBuildDate[0]).toDateString()
 
   const posts = channel.item
-  .map((i) => ({
+    .map((i) => ({
       title: i.title[0],
       link: i.link[0],
       pubDate: new Date(i.pubDate[0]).toDateString(),
     }))
-    .sort((a,b) => new Date(b.pubDate) - new Date(a.pubDate))
+    .sort(
+      (a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime()
+    )
 
   return {
     lastBuildDate,

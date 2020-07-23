@@ -1,3 +1,5 @@
+import GitHubActivity from '../types/GitHubActivity'
+
 const { graphql } = require('@octokit/graphql')
 
 /**
@@ -8,31 +10,31 @@ const { graphql } = require('@octokit/graphql')
  *  starredRepositories: {name:string, url:string}
  * }>}
  */
-module.exports = async (authToken) => {
+module.exports = async (authToken: string) => {
   const graphqlWithAuth = graphql.defaults({
     headers: {
       authorization: `token ${authToken}`,
     },
   })
 
-  data = await graphqlWithAuth(
-    `{
-          user(login: "nabeelvalley") {
-            repositoriesContributedTo(contributionTypes: COMMIT, first: 10) {
-              nodes {
-                name
-                url
-              }
-            }
-            starredRepositories(last: 5) {
-              nodes {
-                name
-                url
-              }
-            }
-          }
-        }`
-  )
+  const data = (await graphqlWithAuth(`
+  {
+    user(login: "nabeelvalley") {
+      repositoriesContributedTo(contributionTypes: COMMIT, first: 10) {
+        nodes {
+          name
+          url
+        }
+      }
+      starredRepositories(last: 5) {
+        nodes {
+          name
+          url
+        }
+      }
+    }
+  }`)) as GitHubActivity
+
   return {
     repositoriesContributedTo: data.user.repositoriesContributedTo.nodes,
     starredRepositories: data.user.starredRepositories.nodes,

@@ -1,8 +1,7 @@
 /**
  * Convert date to YYYY-MM-DD format
- * @param {Date} date
  */
-const yyyymmdd = (date) => {
+export const yyyymmdd = (date: Date): string => {
   const year = date.getFullYear()
   const month = date.getMonth()
   const day = date.getDate()
@@ -13,14 +12,9 @@ const yyyymmdd = (date) => {
 /**
  * Get Yesterday's date
  */
-const getYesterday = () => {
+export const getYesterday = (): Date => {
   var date = new Date()
   date.setDate(date.getDate() - 1)
 
   return date
-}
-
-module.exports = {
-  yyyymmdd,
-  getYesterday,
 }

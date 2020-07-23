@@ -1,11 +1,11 @@
-const Twitter = require('twitter')
+import Twitter = require('twitter')
 
 /**
  * Update user's twitter banner with the provided Base64 Image
- * @param {Twitter.AccessTokenOptions} twitterConfig
- * @param {string} image Base64 Encoded Image
+ * @param twitterConfig
+ * @param image Base64 Encoded Image
  */
-module.exports = async (twitterConfig, image) => {
+export default async (twitterConfig: Twitter.AccessTokenOptions, image: string) => {
   const client = new Twitter(twitterConfig)
 
   const twitterResponse = await client.post('account/update_profile_banner', {

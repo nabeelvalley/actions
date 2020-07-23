@@ -2,16 +2,23 @@
   "name": "nabeelvalley",
   "main": "index.js",
   "scripts": {
-    "start": "node --unhandled-rejections=strict src/index.js"
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "start": "node --unhandled-rejections=strict build/index.js"
   },
   "dependencies": {
     "@octokit/auth": "^2.0.0",
     "@octokit/auth-app": "^2.4.10",
     "@octokit/graphql": "^4.5.2",
+    "@types/node-fetch": "^2.5.7",
+    "@types/sharp": "^0.25.1",
+    "@types/twitter": "^1.7.0",
+    "@types/xml2js": "^0.4.5",
     "dotenv": "^8.2.0",
     "node-fetch": "^2.6.0",
     "sharp": "^0.25.4",
     "twitter": "^1.7.1",
+    "typescript": "^3.9.7",
     "xml2js": "^0.4.23"
   }
 }
