@@ -1,3 +1,5 @@
+![Run Tasks](https://github.com/nabeelvalley/actions/workflows/Run%20Tasks/badge.svg)
+
 # 🎬 Actions
 
 A repository consisting of random GitHub actions and Workflows using different APIs to accomplish little tasks
