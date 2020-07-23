@@ -2,6 +2,8 @@
 
 A repository consisting of random GitHub actions and Workflows using different APIs to accomplish little tasks
 
-## 🤖 Existing Scripts
+## 🔌 Existing Connections
 
-1. `twitterBanner.js` makes use of the [Harvard Art Museums API](https://github.com/harvardartmuseums/api-docs) as well as the [Twitter API](https://developer.twitter.com/en/docs) to update a user's account banner
+1. [NASA APIs](https://api.nasa.gov) for the Image of the Day and Mars Rover Imagery
+2. [Twitter API](https://developer.twitter.com/en/docs) to update a user's account banner
+3. [Harvard Art Museums API](https://github.com/harvardartmuseums/api-docs)
