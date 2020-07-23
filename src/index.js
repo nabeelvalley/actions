@@ -1,5 +1,4 @@
 require('dotenv').config()
-const path = require('path')
 
 const getNasaImageOfTheDayUrl = require('./integrations/getNasaImageOfTheDayUrl')
 const updateTwitterBanner = require('./tasks/updateTwitterBanner')
@@ -24,6 +23,7 @@ const main = async () => {
   } catch (err) {
     console.error('Error running tasks:')
     console.error(err)
+    process.exitCode = 1
   }
 }
 
