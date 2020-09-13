@@ -15,7 +15,7 @@
     "@types/twitter": "^1.7.0",
     "@types/xml2js": "^0.4.5",
     "dotenv": "^8.2.0",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.1",
     "sharp": "^0.25.4",
     "twitter": "^1.7.1",
     "typescript": "^3.9.7",
