@@ -1,8 +1,15 @@
+import { join } from 'path'
+
 import dotenv from 'dotenv'
 
 import getNasaImageOfTheDayUrl from './integrations/getNasaImageOfTheDayUrl'
 import updateTwitterBanner from './tasks/updateTwitterBanner'
 import Twitter from 'twitter'
+import updateReadme from './tasks/updateReadme'
+
+
+const templatePath = join(__dirname, '../src/templates/README.template.md')
+const outPath = join(__dirname, '..', 'README.md')
 
 dotenv.config()
 
@@ -20,6 +27,7 @@ const main = async () => {
     updateTwitterBanner(twitterConfig, () =>
       getNasaImageOfTheDayUrl(nasaApiKey)
     ),
+    updateReadme(templatePath, outPath)
   ]
 
   try {

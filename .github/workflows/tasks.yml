@@ -34,3 +34,9 @@ jobs:
         TWITTER_ACCESS_TOKEN_KEY: ${{ secrets.TWITTER_ACCESS_TOKEN_KEY }}
         TWITTER_ACCESS_TOKEN_SECRET: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
       run: yarn start
+    - name: Commit Update
+      uses: test-room-7/action-update-file@v1
+      with:
+        file-path: README.md
+        commit-msg: ":construction_worker: github action update"
+        github-token: ${{ secrets.GITHUB_TOKEN }}
