@@ -25,8 +25,7 @@ const getDayText = () => {
  * @param getImageFn function to retrieve the image url
  */
 export default async (
-  twitterConfig: Twitter.AccessTokenOptions,
-  getImageFn: () => Promise<string>
+  twitterConfig: Twitter.AccessTokenOptions
 ): Promise<void> => {
   const name = `ugh ${getDayText()}s`
   await updateTwitterName(twitterConfig, name)
